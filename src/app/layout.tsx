@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import { cn } from "@/lib/utils";
+import {
+  MessageSquareText,
+  Aperture,
+  Settings,
+  User,
+  LogIn,
+} from "lucide-react";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +31,66 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased relative",
+          fontSans.variable
+        )}
+      >
+        {children}
+        <section className="navbar flex flex-col justify-start items-center gap-[32px] hover:items-start pt-20px  w-[100px] hover:w-[230px] h-full bg-color-1 text-white absolute left-0 top-0 bottom-0 group transition-all ">
+          <div className="logo w-[60px] h-[58px] text-[48px] font-bold text-color-4  group-hover:ml-[36px]">
+            Ai
+          </div>
+          <div className="menu flex flex-col items-center group-hover:items-start gap-[28px]">
+            <h2 className="text-[20px] font-bold group-hover:px-[36px]">
+              Меню
+            </h2>
+            <ul className="flex flex-col gap-[40px] px-[36px]">
+              <li className="flex items-center justify-center group-hover:justify-start gap-[16px] cursor-pointer">
+                <span className="icon flex justify-center items-center h-[28px] w-[28px]  shrink-0">
+                  <MessageSquareText size={28} />
+                </span>
+                <span className="title text-[16px] font-medium hidden group-hover:block shrink-0 ">
+                  Повідомлення
+                </span>
+              </li>
+              <li className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer">
+                <span className="icon flex justify-center items-center h-[28px] w-[28px]  shrink-0">
+                  <Aperture size={28} />
+                </span>
+                <span className="title text-[16px] font-medium hidden group-hover:block shrink-0">
+                  Чат GPT
+                </span>
+              </li>
+              <li className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer">
+                <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
+                  <Settings size={28} />
+                </span>
+                <span className="title text-[16px] font-medium hidden group-hover:block shrink-0">
+                  Налаштування
+                </span>
+              </li>
+              <li className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer">
+                <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
+                  <User size={28} />
+                </span>
+                <span className="title text-[16px] font-medium hidden group-hover:block shrink-0">
+                  Користувач
+                </span>
+              </li>
+              <li className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer">
+                <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
+                  <LogIn className="rotate-180" size={28} />
+                </span>
+                <span className="title text-[16px]  font-medium hidden group-hover:block shrink-0">
+                  Вихід
+                </span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </body>
     </html>
   );
 }
