@@ -49,7 +49,7 @@ const ChatFilter = () => {
     },
   ];
 
-  const [value, setValue] = React.useState([]);
+  const [value, setValue] = React.useState<string[]>([]);
 
   return (
     <ToggleGroup

@@ -5,8 +5,16 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import MessangerMessage from "./Message";
 import UserAvatar from "../../User/Avatar";
 
+interface IMessage {
+  id: number;
+  body: string;
+  role: "user" | "ai" | undefined;
+  time: string;
+  date: string;
+}
+
 const MessangerBody = () => {
-  const messages = [
+  const messages: IMessage[] = [
     {
       id: 0,
       body: "А замшевые есть в наличии? Очень хочу такие ",
