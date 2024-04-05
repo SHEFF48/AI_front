@@ -115,7 +115,7 @@ const MessangerBody = () => {
           <div
             key={message.id}
             className={cn(
-              "flex gap-[16px] max-w-[calc(100%/4*2)]",
+              "flex gap-[16px] max-w-[calc(100%/4*3)] 2xl:max-w-[calc(100%/4*2)]",
               message.role === "user"
                 ? " self-start flex-row"
                 : " self-end flex-row-reverse"

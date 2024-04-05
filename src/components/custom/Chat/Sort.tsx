@@ -14,18 +14,23 @@ import {
 const ChatSort = () => {
   const [value, setValue] = useState("new");
   const values = [
-    { title: "New", value: "new" },
-    { title: "Old", value: "old" },
+    { title: "Нові", value: "new" },
+    { title: "Старі", value: "old" },
+    { title: "Не прочитані", value: "not read" },
   ];
   return (
     <Select value={value} onValueChange={setValue}>
-      <SelectTrigger className="w-[180px] h-[36px]">
+      <SelectTrigger className="w-[140px] h-[36px]">
         <SelectValue />
       </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
+      <SelectContent className="p-0 m-0 rounded-t-none">
+        <SelectGroup className="p-0 m-0">
           {values.map(({ value, title }) => (
-            <SelectItem key={value} value={value}>
+            <SelectItem
+              key={value}
+              value={value}
+              className="focus:bg-color-2 focus:text-white cursor-pointer border-b rounded-none"
+            >
               {title}
             </SelectItem>
           ))}

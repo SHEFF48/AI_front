@@ -56,7 +56,7 @@ const ChatFilter = () => {
       type="multiple"
       size="lg"
       value={value}
-      className="flex items-center gap-[14px]"
+      className="flex items-center justify-start gap-[14px] h-[90px]"
       // value={value.includes("all") ? setValue(value) : []}
       // onValueChange={(value) => {
       //   console.log("value p: ", value);
@@ -72,8 +72,8 @@ const ChatFilter = () => {
             aria-label="Toggle bold"
             className="h-[42px] w-[200px] flex justify-center items-center text-color-1 font-medium border rounded-lg border-color-7 "
             onClick={() => {
-              item.id === 0 ? setValue(["all"]) : setValue(value);
-              return "val: ", value;
+              // item.id === 0 ? setValue(["all"]) : setValue(value);
+              // return "val: ", value;
             }}
           >
             {item.source.title}

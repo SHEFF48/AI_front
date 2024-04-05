@@ -60,7 +60,7 @@ export function UserInfoForm() {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-[6px] space-y-0">
               <FormLabel className="text-[14px] font-medium">
-                Add phone
+                Додати телефон
               </FormLabel>
               <FormControl>
                 <Input
@@ -81,12 +81,10 @@ export function UserInfoForm() {
           name="city"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-[10px] space-y-0">
-              <FormLabel className="text-[14px] font-medium">
-                Add city
-              </FormLabel>
+              <FormLabel className="text-[14px] font-medium">Місто</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="placeholder"
+                  placeholder="Вкажіть місто"
                   {...field}
                   className="h-[42px]"
                 />
@@ -104,11 +102,11 @@ export function UserInfoForm() {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-[6px] space-y-0">
               <FormLabel className="text-[14px] font-medium">
-                Add delivery
+                Доставка
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder="placeholder"
+                  placeholder="Відділення або поштомат"
                   {...field}
                   className="h-[42px]"
                 />

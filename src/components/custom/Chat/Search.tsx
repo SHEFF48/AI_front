@@ -6,7 +6,7 @@ const ChatSearch = () => {
     <div className="search-line h-[48px]">
       <Input
         // className="h-full"
-        placeholder="Search"
+        placeholder="Пошук"
         className="bg-color-6 text-color-1 font-medium"
       />
     </div>
