@@ -95,10 +95,10 @@ function MessageForm() {
                 <SmileIcon size={24} color="#4D4CAC" />
                 <Button
                   type="submit"
-                  className="flex gap-[10px] items-center pl-[22px] pr-[11px] h-[42px] text-[14px] text-color-2 bg-color-5"
+                  className="flex gap-[10px] items-center pl-[22px] pr-[11px] h-[42px] text-[14px] text-color-2 bg-color-5 hover:bg-color-2 hover:text-white group"
                 >
                   Відправити
-                  <SendIcon size={20} fill="#4D4CAC" color="#4D4CAC" />
+                  <SendIcon size={20} className="group-hover:text-white" />
                 </Button>
               </div>
             </FormItem>

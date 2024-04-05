@@ -38,8 +38,8 @@ export default function RootLayout({
         )}
       >
         {children}
-        <section className="navbar flex flex-col justify-start items-center gap-[32px] hover:items-start pt-20px  w-[100px] hover:w-[230px] h-full bg-color-1 text-white absolute left-0 top-0 bottom-0 group transition-all ">
-          <div className="logo w-[60px] h-[58px] text-[48px] font-bold text-color-4  group-hover:ml-[36px]">
+        <section className="navbar flex flex-col justify-start items-center gap-[32px] hover:items-start pt-[20px]  w-[100px] hover:w-[230px] h-full bg-color-1 text-white absolute left-0 top-0 bottom-0 group transition-all ">
+          <div className="logo w-[60px] h-[58px] text-[48px] font-bold text-color-4  group-hover:ml-[36px] flex justify-center items-center">
             Ai
           </div>
           <div className="menu flex flex-col items-center group-hover:items-start gap-[28px]">
