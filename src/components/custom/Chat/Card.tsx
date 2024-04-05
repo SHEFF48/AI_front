@@ -22,7 +22,7 @@ const ChatCard: FC<IChatCard> = ({
   lastMessageTime,
 }) => {
   return (
-    <div className="w-[377px] h-[104px] p-[20px] flex items-center justify-between border border-color-5 rounded-[8px] relative">
+    <div className="w-[377px] h-[104px] p-[20px] flex items-center justify-between border border-color-5  hover:outline outline-offset-[-3px]  hover:outline-color-2 rounded-[8px] relative">
       <div className="user flex justify-start items-center gap-[20px]">
         <UserAvatar sizeMain={60} sizeSecondary={28} showSecondary />
 

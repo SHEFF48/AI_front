@@ -8,7 +8,7 @@ const ChatSearch = () => {
       <Input
         // className="h-full"
         placeholder="Пошук"
-        className="bg-color-6 text-color-1 font-medium h-full w-full"
+        className="bg-color-6 text-color-1 font-medium h-full w-full focus:border-color-2"
       />
       <SearchIcon
         size={20}
