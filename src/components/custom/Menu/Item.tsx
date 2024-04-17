@@ -19,7 +19,7 @@ interface IMenuItem {
 
 const MenuItem: FC<IMenuItem> = ({ id, title, url, icon, isActive }) => {
   const CurentIcon =
-    (icon && ((Icons as LucideIconType)[icon] as React.ComponentType)) ||
+    (icon && ((Icons as LucideIconType)[icon] as typeof Icons.Tent)) ||
     undefined;
   return (
     <li
