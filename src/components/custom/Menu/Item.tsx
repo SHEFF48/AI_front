@@ -29,7 +29,7 @@ const MenuItem: FC<IMenuItem> = ({ id, title, url, icon, isActive }) => {
       )}
     >
       <span className="icon flex justify-center items-center h-[28px] w-[28px]  shrink-0">
-        {CurentIcon && <CurentIcon size={28} />}
+        {CurentIcon && <CurentIcon className="h-[28px] w-[28px]" />}
       </span>
 
       <Link
