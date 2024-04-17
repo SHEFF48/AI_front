@@ -9,8 +9,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+
 import Image from "next/image";
+import CreateForm from "../../forms/Create";
 
 const SelectChanel = () => {
   return (
@@ -49,9 +50,7 @@ const SelectChanel = () => {
               Facebook
             </div>
           </SelectItem>
-          <Button className="bg-color-2  text-white w-full text-[16px] font-bold  h-[42px] rounded-none">
-            Додати канал +
-          </Button>
+          <CreateForm />
         </SelectGroup>
       </SelectContent>
     </Select>
