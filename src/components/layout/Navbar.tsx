@@ -6,7 +6,7 @@ import { FileText } from "lucide-react";
 const Navbar = () => {
   return (
     <section className="navbar flex flex-col justify-between items-center gap-[32px] hover:items-start pt-[20px]  w-[100px] hover:w-[230px] h-full bg-color-1 text-white fixed left-0 top-0 bottom-0 group transition-all overflow-hidden z-50">
-      <div className="top flex flex-col justify-start items-center gap-[32px] hover:items-start">
+      <div className="top flex flex-col justify-start items-center gap-[32px] group-hover:items-start">
         <div className="logo w-[60px] h-[58px] text-[48px] font-bold text-color-4  group-hover:ml-[36px] flex justify-center items-center">
           <Link href={"/"}>Ai</Link>
         </div>
