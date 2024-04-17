@@ -8,11 +8,11 @@ const ChatSearch = () => {
       <Input
         // className="h-full"
         placeholder="Пошук"
-        className="bg-color-6 text-color-1 font-medium h-full w-full focus:border-color-2"
+        className="bg-color-6 text-color-1 font-medium h-full w-full focus:border-color-2 placeholder:text-color-1"
       />
       <SearchIcon
         size={20}
-        className="absolute right-[14px] top-[13px] bottom-[13px] my-auto"
+        className="absolute right-[14px] top-[13px] bottom-[13px] my-auto text-color-1"
       />
     </div>
   );

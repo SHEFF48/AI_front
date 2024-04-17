@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import UserAvatar from "../User/Avatar";
+import UserAvatar from "../../User/Avatar";
 
 interface IUser {
   firstName?: string | undefined;

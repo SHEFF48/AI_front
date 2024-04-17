@@ -9,7 +9,7 @@ interface IMessage {
   role?: "user" | "ai";
 }
 
-const MessangerMessage: FC<IMessage> = ({ body, time, role }) => {
+const MessagesItem: FC<IMessage> = ({ body, time, role }) => {
   return (
     <div
       className={cn(
@@ -32,4 +32,4 @@ const MessangerMessage: FC<IMessage> = ({ body, time, role }) => {
   );
 };
 
-export default MessangerMessage;
+export default MessagesItem;

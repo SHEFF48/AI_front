@@ -30,7 +30,7 @@ const FormSchema = z.object({
   }),
 });
 
-function MessageForm() {
+function MessagesForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -90,12 +90,15 @@ function MessageForm() {
                     </FormItem>
                   )}
                 /> */}
-                <LinkIcon size={24} color="#4D4CAC" />
-                <PaperclipIcon size={24} color="#4D4CAC" />
-                <SmileIcon size={24} color="#4D4CAC" />
+                <div className="flex  items-center gap-[20px] shrink-0 ">
+                  <LinkIcon size={24} color="#4D4CAC" />
+                  <PaperclipIcon size={24} color="#4D4CAC" />
+                  <SmileIcon size={24} color="#4D4CAC" />
+                </div>
+
                 <Button
                   type="submit"
-                  className="flex gap-[10px] items-center pl-[22px] pr-[11px] h-[42px] text-[14px] text-color-2 bg-color-5 hover:bg-color-2 hover:text-white group"
+                  className="flex gap-[10px] items-center px-0 pl-[22px] pr-[11px] h-[42px] text-[14px] text-color-2 bg-color-5 hover:bg-color-2 hover:text-white group"
                 >
                   Відправити
                   <SendIcon size={20} className="group-hover:text-white" />
@@ -109,4 +112,4 @@ function MessageForm() {
   );
 }
 
-export default MessageForm;
+export default MessagesForm;

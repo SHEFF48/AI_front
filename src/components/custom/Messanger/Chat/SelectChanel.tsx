@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-const ChatChanel = () => {
+const SelectChanel = () => {
   return (
     <Select>
       <SelectTrigger className="text-[16px] font-bold w-[200px] h-[42px] rounded-[8px]">
@@ -58,4 +58,4 @@ const ChatChanel = () => {
   );
 };
 
-export default ChatChanel;
+export default SelectChanel;

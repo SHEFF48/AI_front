@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import MessangerMessage from "./Message";
+import MessagesItem from "./Item";
 import UserAvatar from "../../User/Avatar";
 
 interface IMessage {
@@ -13,7 +13,7 @@ interface IMessage {
   date: string;
 }
 
-const MessangerBody = () => {
+const MessagesList = () => {
   const messages: IMessage[] = [
     {
       id: 0,
@@ -141,7 +141,7 @@ const MessangerBody = () => {
               )}
             </div>
             <div>
-              <MessangerMessage {...message} />
+              <MessagesItem {...message} />
               {/* {message.body} */}
             </div>
           </div>
@@ -151,4 +151,4 @@ const MessangerBody = () => {
   );
 };
 
-export default MessangerBody;
+export default MessagesList;

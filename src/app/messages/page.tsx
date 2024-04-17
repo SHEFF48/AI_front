@@ -3,20 +3,20 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import ChatList from "@/components/custom/Messanger/Chat/List";
 import ChatFilter from "@/components/custom/Messanger/Chat/Filter";
 import ChatSort from "@/components/custom/Messanger/Chat/Sort";
-import ChatChanel from "@/components/custom/Messanger/Chat/SelectChanel";
+import SelectChanel from "@/components/custom/Messanger/Chat/SelectChanel";
 import ChatSearch from "@/components/custom/Messanger/Chat/Search";
 import MessangerHeader from "@/components/custom/Messanger/Messages/Header";
-import MessangerBody from "@/components/custom/Messanger/Messages/List";
+import MessagesList from "@/components/custom/Messanger/Messages/List";
 import UserInfo from "@/components/custom/User/Info";
 import { Input } from "@/components/ui/input";
-import MessangerForm from "@/components/custom/Messanger/Messages/Form";
+import MessagesForm from "@/components/custom/Messanger/Messages/Form";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen  items-start justify-between ml-[100px] overflow-hidden">
       <div className="main-content  w-full h-svh overflow-hidden ">
         <section className="choose-chanel flex items-center h-[90px] w-full border-b pl-[24px]">
-          <ChatChanel />
+          <SelectChanel />
         </section>
         <section className="massenger-filter w-full px-[24px] border-b overflow-hidden">
           <ScrollArea
@@ -24,7 +24,6 @@ export default function Home() {
             className=" h-full  w-full flex items-center "
           >
             <ChatFilter />
-
             <ScrollBar
               className="flex select-none touch-none p-0 rounded bg-color-7 transition-colors duration-[160ms] ease-out data-[orientation=vertical]:w-[6px] data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:h-[6px]"
               orientation="horizontal"
@@ -61,7 +60,7 @@ export default function Home() {
             <MessangerHeader user={{ firstName: "Ivan", lastName: "Ivanov" }} />
             <div className="chat-list h-[calc(100%-390px)] p-[24px] overflow-hidden ">
               <ScrollArea type="auto" className=" h-full  w-full ">
-                <MessangerBody />
+                <MessagesList />
 
                 <ScrollBar
                   className="flex select-none touch-none p-0 rounded bg-color-7 transition-colors duration-[160ms] ease-out data-[orientation=vertical]:w-[6px] data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:h-[6px]"
@@ -70,7 +69,7 @@ export default function Home() {
               </ScrollArea>
             </div>
             <div className="w-full px-[24px]">
-              <MessangerForm />
+              <MessagesForm />
             </div>
           </div>
         </section>

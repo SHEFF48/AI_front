@@ -49,7 +49,7 @@ const ChatFilter = () => {
     },
   ];
 
-  const [value, setValue] = React.useState<string[]>([]);
+  const [value, setValue] = React.useState<string[]>(["all"]);
 
   return (
     <ToggleGroup
@@ -59,9 +59,12 @@ const ChatFilter = () => {
       className="flex items-center justify-start gap-[14px] h-[90px]"
       // value={value.includes("all") ? setValue(value) : []}
       onValueChange={(value) => {
-        console.log("value p: ", value);
-        !value.includes("all") ? setValue(value) : "";
-        console.log("value: ", value);
+        setValue(value);
+        // console.log("value p: ", value);
+
+        // !value.includes("all")
+        //   ? setValue(value)
+        //   : (setValue([]), setValue(["all"]));
       }}
     >
       {filter.map((item) => {
@@ -72,8 +75,20 @@ const ChatFilter = () => {
             aria-label="Toggle bold"
             className="h-[42px] w-[200px] flex justify-center items-center text-color-1 font-medium border rounded-lg border-color-7 hover:border-color-2 hover:border-2 hover:bg-white hover:text-black data-[state=on]:bg-color-2 data-[state=on]:text-white"
             onClick={() => {
-              // item.id === 0 ? setValue(["all"]) : setValue(value);
-              // return "val: ", value;
+              // console.log("value px: ", value);
+              // setValue([
+              //   ...value.filter((valueItem) => valueItem != item.source.type),
+              //   item.source.type,
+              // ]);
+              // setValue(
+              //   value?.filter((valueItem) => valueItem !== item.source.type)
+              // );
+              // item.id === 0 && !value.includes("all")
+              //   ? setValue(["all"])
+              //   : setValue([]);
+              // item.id !== 0 && !value.includes("all")
+              //   ? setValue([...value, item.source.type])
+              //   : setValue([item.source.type]);
             }}
           >
             {item.source.title}
