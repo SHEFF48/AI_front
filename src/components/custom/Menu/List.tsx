@@ -53,7 +53,9 @@ const MenuList = () => {
         <Link
           href={"/login"}
           className="title  text-[16px] font-medium break-words w-full  hidden group-hover:block  shrink-0 "
-        ></Link>
+        >
+          {"Вихід"}
+        </Link>
       </li>
     </ul>
   );
