@@ -54,15 +54,16 @@ export default function CreateForm() {
       </DialogTrigger>
       <DialogContent className="w-[416px] p-7 rounded-2xl shadow">
         <DialogHeader>
-          <DialogTitle className="text-[36px] text-left font-bold">
+          {/* <DialogTitle className="text-[36px] text-left font-bold">
             {"Новый канал"}
-          </DialogTitle>
+          </DialogTitle> */}
         </DialogHeader>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col gap-[20px]"
           >
+            <h2 className="text-[36px] text-left font-bold">{"Новый канал"}</h2>
             <FormField
               control={form.control}
               name="channelName"
@@ -107,7 +108,9 @@ export default function CreateForm() {
               <Button variant={"main"} type="submit">
                 Створити
               </Button>
-              <Button variant={"secondary"}>Відміна</Button>
+              <DialogClose asChild>
+                <Button variant={"secondary"}>Відміна</Button>
+              </DialogClose>
             </div>
           </form>
         </Form>
