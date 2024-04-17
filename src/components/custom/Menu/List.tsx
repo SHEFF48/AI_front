@@ -4,6 +4,7 @@ import React from "react";
 import MenuItem from "./Item";
 import { LogInIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const menu = [
   {
@@ -48,9 +49,11 @@ const MenuList = () => {
         <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
           <LogInIcon className="rotate-180" size={28} />
         </span>
-        <span className="title text-[16px]  font-medium hidden group-hover:block shrink-0">
-          Вихід
-        </span>
+
+        <Link
+          href={"/login"}
+          className="title  text-[16px] font-medium break-words w-full  hidden group-hover:block  shrink-0 "
+        ></Link>
       </li>
     </ul>
   );
