@@ -102,7 +102,7 @@ export default function LoginForm() {
           <div className="h-[1px] w-full bg-[#CACACA] absolute m-auto z-10"></div>
         </div>
         <div className="flex flex-col gap-[14px]">
-          <Button variant={"normal"}>
+          <Button variant={"normal"} type="button">
             <div className="flex justify-start items-center  font-medium w-full ">
               <div className="w-[28px] h-[28px] shrink-0">
                 <Image
@@ -117,7 +117,7 @@ export default function LoginForm() {
               </div>
             </div>
           </Button>
-          <Button variant={"normal"}>
+          {/* <Button variant={"normal"} type="button">
             <div className="flex justify-start items-center font-medium w-full">
               <div className="w-[28px] h-[28px] shrink-0">
                 <Image
@@ -131,7 +131,7 @@ export default function LoginForm() {
                 {"Увійти через Google"}
               </div>
             </div>
-          </Button>
+          </Button> */}
         </div>
       </form>
     </Form>
