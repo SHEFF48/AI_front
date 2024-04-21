@@ -3,8 +3,15 @@ import RegistartionForm from "@/components/custom/forms/Registartion";
 import RecoveryForm from "@/components/custom/forms/Recovery";
 import CreateForm from "@/components/custom/forms/Create";
 import { Suspense } from "react";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authConfig } from "../configs/auth";
 
-export default function Create() {
+export default async function Create() {
+  const session = await getServerSession(authConfig);
+  console.log("session: + ", session);
+  session && redirect("/messages");
+
   return (
     <main className="flex flex-col min-h-screen  items-center justify-center overflow-hidden">
       <div className="w-[416px] p-7 rounded-2xl shadow">
