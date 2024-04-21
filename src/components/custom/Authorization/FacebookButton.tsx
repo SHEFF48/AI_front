@@ -12,7 +12,7 @@ const FacebookButton = () => {
   // const callbackUrl = searchParams.get("callbackUrl");
   // const callbackUrl = currentcallbackUrl === "/login" ? "messages" : currentcallbackUrl;
 
-  const callbackUrl = "messages";
+  const callbackUrl = "/messages";
 
   return (
     <Button

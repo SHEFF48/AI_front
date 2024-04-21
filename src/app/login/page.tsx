@@ -9,7 +9,7 @@ import { authConfig } from "../configs/auth";
 
 export default async function Create() {
   const session = await getServerSession(authConfig);
-  console.log("session: + ", session);
+
   session && redirect("/messages");
 
   return (
