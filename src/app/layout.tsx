@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Menu from "@/components/custom/Menu";
 import Navbar from "@/components/layout/Navbar";
+import { Providers } from "@/components/providers/Providers";
 
 const fontSans = FontSans({
   subsets: ["latin", "cyrillic"],
@@ -36,8 +37,10 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {isAuthorized && <Navbar />}
-        {children}
+        <Providers>
+          {isAuthorized && <Navbar />}
+          {children}
+        </Providers>
       </body>
     </html>
   );

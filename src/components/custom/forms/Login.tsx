@@ -14,14 +14,15 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
+
 import PasswordInput from "./inputs/Password";
 import EmailInput from "./inputs/Email";
 import CheckboxInput from "./inputs/Checkbox";
 import Link from "next/link";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import FacebookButton from "@/components/custom/Authorization/FacebookButton";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }).min(5, {
@@ -34,6 +35,8 @@ const formSchema = z.object({
 });
 
 export default function LoginForm() {
+  const router = useRouter();
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,9 +48,20 @@ export default function LoginForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    const response = await signIn("credentials", {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
+
+    if (response && !response?.error) {
+      router.push("messages");
+    } else {
+      console.log(response);
+    }
     console.log(values);
   }
 
@@ -102,7 +116,12 @@ export default function LoginForm() {
           <div className="h-[1px] w-full bg-[#CACACA] absolute m-auto z-10"></div>
         </div>
         <div className="flex flex-col gap-[14px]">
-          <Button variant={"normal"} type="button">
+          <FacebookButton />
+          {/* <Button
+            variant={"normal"}
+            type="button"
+            onClick={() => signIn("google", { callbackUrl })}
+          >
             <div className="flex justify-start items-center  font-medium w-full ">
               <div className="w-[28px] h-[28px] shrink-0">
                 <Image
@@ -116,7 +135,7 @@ export default function LoginForm() {
                 {"Увійти через Facebook"}
               </div>
             </div>
-          </Button>
+          </Button> */}
           {/* <Button variant={"normal"} type="button">
             <div className="flex justify-start items-center font-medium w-full">
               <div className="w-[28px] h-[28px] shrink-0">
