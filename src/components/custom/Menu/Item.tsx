@@ -22,21 +22,20 @@ const MenuItem: FC<IMenuItem> = ({ id, title, url, icon, isActive }) => {
     (icon && ((Icons as LucideIconType)[icon] as typeof Icons.Tent)) ||
     undefined;
   return (
-    <li
-      className={cn(
-        "flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer",
-        isActive ? "text-white" : ""
-      )}
-    >
-      <span className="icon flex justify-center items-center h-[28px] w-[28px]  shrink-0">
-        {CurentIcon && <CurentIcon className="h-[28px] w-[28px]" />}
-      </span>
-
+    <li className="w-full">
       <Link
         href={url}
-        className="title  text-[16px] font-medium break-words w-full hidden group-hover:block  shrink-0 "
+        className={cn(
+          "flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer",
+          isActive ? "text-white" : ""
+        )}
       >
-        {title}
+        <span className="icon flex justify-center items-center h-[28px] w-[28px]  shrink-0">
+          {CurentIcon && <CurentIcon className="h-[28px] w-[28px]" />}
+        </span>
+        <span className="title  text-[16px] font-medium break-words w-full  hidden group-hover:block  shrink-0 ">
+          {title}
+        </span>
       </Link>
     </li>
   );

@@ -10,7 +10,7 @@ import Menu from "@/components/custom/Menu";
 import Navbar from "@/components/layout/Navbar";
 
 const fontSans = FontSans({
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   variable: "--font-sans",
 });
 

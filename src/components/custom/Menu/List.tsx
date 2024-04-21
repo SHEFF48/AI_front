@@ -45,16 +45,17 @@ const MenuList = () => {
             <MenuItem key={menuItem.id} {...menuItem} isActive={isActive} />
           );
         })}
-      <li className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer">
-        <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
-          <LogInIcon className="rotate-180" size={28} />
-        </span>
-
+      <li className="w-full">
         <Link
           href={"/login"}
-          className="title  text-[16px] font-medium break-words w-full  hidden group-hover:block  shrink-0 "
+          className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] cursor-pointer"
         >
-          {"Вихід"}
+          <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
+            <LogInIcon className="rotate-180" size={28} />
+          </span>
+          <span className="title  text-[16px] font-medium break-words w-full  hidden group-hover:block  shrink-0 ">
+            {"Вихід"}
+          </span>
         </Link>
       </li>
     </ul>

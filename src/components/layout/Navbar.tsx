@@ -13,16 +13,17 @@ const Navbar = () => {
         <Menu />
       </div>
 
-      <div className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] px-[36px] cursor-pointer h-[60px] mb-10">
-        <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
-          <FileText size={28} />
-        </span>
-
+      <div>
         <Link
           href={"/privacy-policy"}
-          className="title  text-[16px] font-medium break-words w-full  hidden group-hover:block  shrink-0 "
+          className="flex items-center justify-center text-[#B1B6D1] hover:text-white group-hover:justify-start gap-[16px] px-[36px] cursor-pointer h-[60px] mb-10"
         >
-          {"Політика конфіденційності"}
+          <span className="icon flex justify-center items-center h-[28px] w-[28px] shrink-0">
+            <FileText size={28} />
+          </span>
+          <span className="title  text-[16px] font-medium break-words w-full  hidden group-hover:block  shrink-0 ">
+            {"Політика конфіденційності"}
+          </span>
         </Link>
       </div>
     </section>
