@@ -9,7 +9,7 @@ async function getData(API_URL: string | undefined) {
   if (!API_URL) {
     throw new Error("API URL is not defined");
   }
-  const res = await fetch(API_URL, { cache: "no-store" });
+  const res = await fetch(API_URL);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
