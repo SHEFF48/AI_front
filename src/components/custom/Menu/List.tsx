@@ -47,7 +47,7 @@ const MenuList = () => {
     <ul className="flex flex-col gap-[40px] px-[36px]">
       {menu &&
         menu?.map((menuItem) => {
-          const isActive = menuItem.url === pathname;
+          const isActive = pathname.includes(menuItem.url);
 
           return (
             <MenuItem key={menuItem.id} {...menuItem} isActive={isActive} />
