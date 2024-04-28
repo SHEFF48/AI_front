@@ -20,9 +20,10 @@ import EmailInput from "./inputs/Email";
 import CheckboxInput from "./inputs/Checkbox";
 import Link from "next/link";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import FacebookButton from "@/components/custom/Authorization/FacebookButton";
+import { useEffect, useState } from "react";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }).min(5, {
@@ -36,6 +37,11 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const router = useRouter();
+  const session = useSession();
+
+  useEffect(() => {
+    session.status === "authenticated" && router.push("/messages");
+  });
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
