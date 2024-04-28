@@ -34,8 +34,6 @@ const ChatCard: FC<IChatCard> = ({
 
   const isActive = pathname?.includes(chat_id!.toString());
 
-  console.log("is active:", isActive);
-
   return (
     <div
       className={cn(

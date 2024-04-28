@@ -32,7 +32,13 @@ const FormSchema = z.object({
   // }),
 });
 
-function MessagesForm({ chat_id }: { chat_id?: string }) {
+function MessagesForm({
+  chat_id,
+  user_id,
+}: {
+  chat_id?: string;
+  user_id?: string;
+}) {
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -40,14 +46,16 @@ function MessagesForm({ chat_id }: { chat_id?: string }) {
       userMessage: "",
     },
   });
+  // const ENV = process.env.NEXTAUTH_URL;
 
   function onSubmit(formData: z.infer<typeof FormSchema>) {
-    const data = { pageId: chat_id, message: formData?.userMessage };
-    // console.log("form data", data);
+    const data = { pageId: user_id, message: formData?.userMessage };
+
+    // console.log("ENV:", ENV);
 
     sendMessage(data);
     form.reset();
-    router.push(`/messages/${chat_id}`);
+    // router.push(`/messages/${chat_id}`);
 
     // toast({
     //   title: "You submitted the following values:",

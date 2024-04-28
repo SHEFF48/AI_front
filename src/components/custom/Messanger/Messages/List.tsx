@@ -1,5 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef } from "react";
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import MessagesItem from "./Item";
@@ -23,21 +25,23 @@ interface Message {
   };
 }
 
-// interface IMessage {
-//   id: number;
-//   body: string;
-//   role: "user" | "ai" | undefined;
-//   time: string;
-//   date: string;
-// }
-
 const MessagesList: FC<{ messages?: Message[] }> = ({ messages }) => {
+  const lastMessageRef = useRef<HTMLDivElement | null>(null);
+  const lastMessageId = messages?.length && messages?.length - 1;
+
+  useEffect(() => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView(false);
+    }
+  }, [messages]);
+
   return (
     <div className="messanger-body flex flex-col justify-start gap-[20px] pr-[24px]">
       {messages?.map((message, index) => {
         return (
           <div
             key={message.id}
+            ref={lastMessageId === index ? lastMessageRef : null}
             className={cn(
               "flex gap-[16px] max-w-[calc(100%/4*3)] 2xl:max-w-[calc(100%/4*2)]",
               message.from.id !== "1459051531069575"

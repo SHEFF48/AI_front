@@ -15,11 +15,14 @@ import { NextPage } from "next";
 import { getChatById } from "@/lib/data";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getUserId } from "@/lib/utils";
 
 const ChatPage: NextPage = async ({ params }: any) => {
   const { chat_id } = params;
 
   const chatMessages = await getChatById(chat_id);
+
+  const userId = getUserId(chatMessages);
 
   return (
     <>
@@ -36,7 +39,7 @@ const ChatPage: NextPage = async ({ params }: any) => {
           </ScrollArea>
         </div>
         <div className="w-full px-[24px]">
-          <MessagesForm chat_id={chat_id} />
+          <MessagesForm chat_id={chat_id} user_id={userId} />
         </div>
       </Suspense>
     </>

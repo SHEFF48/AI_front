@@ -6,7 +6,7 @@ import { getAllChats } from "@/lib/data";
 
 const ChatList = async () => {
   const chatList = await getAllChats();
-  console.log(chatList);
+
   return (
     <div className="flex flex-col gap-[8px] ">
       {chatList?.data?.map((chatItem: any) => (
