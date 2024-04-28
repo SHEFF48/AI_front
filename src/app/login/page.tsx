@@ -10,7 +10,9 @@ import { authConfig } from "@/app/configs/auth";
 export default async function page() {
   const session = await getServerSession(authConfig);
 
-  session && redirect("/messages");
+  session?.user?.name &&
+    session?.user?.name.length > 1 &&
+    redirect("/messages");
 
   return (
     <main className="flex flex-col min-h-screen  items-center justify-center overflow-hidden">
