@@ -21,7 +21,7 @@ const UserAvatar: FC<IAvatar> = ({
     <div className={`icon w-[${sizeMain}px] h-[${sizeMain}px] relative`}>
       <Avatar className={`w-[${sizeMain}px] h-[${sizeMain}px] bg-color-3`}>
         <AvatarImage
-          src="./img/user.jpeg"
+          src="/img/user.jpeg"
           className={`w-[${sizeMain}px] h-[${sizeMain}px] object-cover bg-color-3`}
         />
         <AvatarFallback>{"user"}</AvatarFallback>
@@ -30,7 +30,7 @@ const UserAvatar: FC<IAvatar> = ({
         <Avatar
           className={`social w-[${sizeSecondary}px] h-[${sizeSecondary}px] bg-white absolute bottom-[-4px] right-[-4px] rounded-full p-[4px]`}
         >
-          <AvatarImage src="./icons/instagram.svg" />
+          <AvatarImage src="/icons/instagram.svg" />
           <AvatarFallback>{"source"}</AvatarFallback>
         </Avatar>
       )}

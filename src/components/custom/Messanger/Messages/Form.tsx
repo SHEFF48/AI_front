@@ -17,20 +17,23 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { LinkIcon, PaperclipIcon, SendIcon, SmileIcon } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
+import { sendMessage } from "@/lib/data";
 
 const FormSchema = z.object({
   userMessage: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "Повідомлення повинно мати мінимум 2 символи.",
   }),
-  file: z.string().min(2, {
-    message: "city must be at least 2 characters.",
-  }),
-  delivery: z.string().min(2, {
-    message: "delivery must be at least 2 characters.",
-  }),
+  // file: z.string().min(2, {
+  //   message: "city must be at least 2 characters.",
+  // }),
+  // delivery: z.string().min(2, {
+  //   message: "delivery must be at least 2 characters.",
+  // }),
 });
 
-function MessagesForm() {
+function MessagesForm({ chat_id }: { chat_id?: string }) {
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -38,15 +41,22 @@ function MessagesForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  function onSubmit(formData: z.infer<typeof FormSchema>) {
+    const data = { pageId: chat_id, message: formData?.userMessage };
+    // console.log("form data", data);
+
+    sendMessage(data);
+    form.reset();
+    router.push(`/messages/${chat_id}`);
+
+    // toast({
+    //   title: "You submitted the following values:",
+    //   description: (
+    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+    //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+    //     </pre>
+    //   ),
+    // });
   }
 
   return (
@@ -61,16 +71,19 @@ function MessagesForm() {
           render={({ field }) => (
             <FormItem className="flex flex-col items-center gap-[6px]  space-y-0 border rounded-[8px] relative">
               <FormControl>
-                <Input
-                  placeholder="Відповісти в Instagram"
-                  {...field}
-                  className="pr-[18px] pl-[28px] h-[78px] placeholder:text-color-11"
-                />
+                <>
+                  <Input
+                    placeholder="Відповісти в Instagram"
+                    {...field}
+                    className="pr-[18px] pl-[28px] h-[78px] placeholder:text-color-11"
+                  />
+                  <FormMessage className="absolute bg-white top-0 left-[28px]" />
+                </>
               </FormControl>
               {/* <FormDescription>
                 This is your public display name.
               </FormDescription> */}
-              <FormMessage />
+
               <div className="flex items-center gap-[20px] h-full absolute right-[18px] bottom-0 top-0 ">
                 {/* <FormField
                   control={form.control}

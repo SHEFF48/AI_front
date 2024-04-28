@@ -1,13 +1,16 @@
-import { chatList } from "@/data/chat-list";
+// import { chatList } from "@/data/chat-list";
 
 import React from "react";
 import ChatCard from "./Card";
+import { getAllChats } from "@/lib/data";
 
-const ChatList = () => {
+const ChatList = async () => {
+  const chatList = await getAllChats();
+  console.log(chatList);
   return (
     <div className="flex flex-col gap-[8px] ">
-      {chatList.map((chatItem) => (
-        <ChatCard key={chatItem.id} {...chatItem} />
+      {chatList?.data?.map((chatItem: any) => (
+        <ChatCard key={chatItem.chat_id} {...chatItem} />
       ))}
     </div>
   );
