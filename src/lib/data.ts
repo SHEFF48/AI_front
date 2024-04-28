@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 const API_BASE_URL: string | undefined = process.env.API_BASE_URL;
 const test = "2";
@@ -9,7 +9,7 @@ async function getData(API_URL: string | undefined) {
   if (!API_URL) {
     throw new Error("API URL is not defined");
   }
-  const res = await fetch(API_URL);
+  const res = await fetch(API_URL, { next: { tags: ["messages"] } });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -59,5 +59,6 @@ export async function sendMessage(data: any) {
 
   console.log("URL URL:", URL);
   await postData(URL, data);
-  revalidatePath("/messages");
+  // revalidatePath("/messages");
+  revalidateTag("messages");
 }
