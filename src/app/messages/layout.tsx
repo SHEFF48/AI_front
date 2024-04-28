@@ -11,6 +11,7 @@ import MessangerHeader from "@/components/custom/Messanger/Messages/Header";
 import MessagesList from "@/components/custom/Messanger/Messages/List";
 import UserInfo from "@/components/custom/User/Info";
 import MessagesForm from "@/components/custom/Messanger/Messages/Form";
+import { Suspense } from "react";
 
 // import { Providers } from "@/components/providers/Providers";
 
@@ -69,7 +70,13 @@ export default function Layout({
           </div>
 
           <div className="messandger-block flex flex-col justify-start w-full h-full overflow-hidden">
-            {children}
+            <Suspense
+              fallback={
+                <div className="flex justify-center m-10">Loading ... </div>
+              }
+            >
+              {children}
+            </Suspense>
           </div>
         </section>
       </div>
