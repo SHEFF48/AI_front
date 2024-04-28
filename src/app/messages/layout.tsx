@@ -12,7 +12,7 @@ import MessagesList from "@/components/custom/Messanger/Messages/List";
 import UserInfo from "@/components/custom/User/Info";
 import MessagesForm from "@/components/custom/Messanger/Messages/Form";
 
-import { Providers } from "@/components/providers/Providers";
+// import { Providers } from "@/components/providers/Providers";
 
 export const metadata: Metadata = {
   title: "AI Application - Messages",
@@ -21,10 +21,8 @@ export const metadata: Metadata = {
 
 export default function Layout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: any;
 }>) {
   return (
     <main className="flex min-h-screen  items-start justify-between ml-[100px] overflow-hidden">

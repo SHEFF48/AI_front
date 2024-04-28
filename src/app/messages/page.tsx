@@ -10,7 +10,7 @@ import MessagesList from "@/components/custom/Messanger/Messages/List";
 import UserInfo from "@/components/custom/User/Info";
 import MessagesForm from "@/components/custom/Messanger/Messages/Form";
 
-export default function Messages() {
+export default function page() {
   return (
     <div className="flex items-start justify-center m-10 h-full w-full">
       Оберіть чат для спілкування

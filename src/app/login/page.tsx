@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authConfig } from "../configs/auth";
 
-export default async function Create() {
+export default async function page() {
   const session = await getServerSession(authConfig);
 
   session && redirect("/messages");
