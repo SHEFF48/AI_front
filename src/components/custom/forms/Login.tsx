@@ -54,15 +54,16 @@ export default function LoginForm() {
     const response = await signIn("credentials", {
       email: values.email,
       password: values.password,
-      redirect: false,
+      redirect: true,
+      callbackUrl: "/messages",
     });
 
-    if (response && !response?.error) {
-      router.push("messages");
-    } else {
-      console.log(response);
-    }
-    console.log(values);
+    // if (response && !response?.error) {
+    //   router.push("/messages");
+    // } else {
+    //   console.log(response);
+    // }
+    // console.log(values);
   }
 
   return (
