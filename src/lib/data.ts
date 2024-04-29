@@ -53,6 +53,13 @@ export async function getChatById(chatId: string) {
   return await getData(URL);
 }
 
+export async function getChatByIdLong(chatId: string) {
+  const URI = `/poll?chatId=${chatId}`;
+  const URL = `${API_BASE_URL!}${URI!}`;
+
+  return await getData(URL);
+}
+
 export async function sendMessage(data: any) {
   const URI = `/send_message`;
   const URL = `${API_BASE_URL!}${URI!}`;

@@ -24,7 +24,7 @@ const ChatPage: NextPage = async ({ params }: any) => {
         <MessangerHeader user={{ firstName: "Ivan", lastName: "Ivanov" }} />
         <div className="chat-list h-[calc(100%-390px)] p-[24px] overflow-hidden ">
           <ScrollArea type="auto" className=" h-full  w-full ">
-            <MessagesList messages={chatMessages} />
+            <MessagesList messages={chatMessages} chatId={chat_id} />
 
             <ScrollBar
               className="flex select-none touch-none p-0 rounded bg-color-7 transition-colors duration-[160ms] ease-out data-[orientation=vertical]:w-[6px] data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:h-[6px]"
