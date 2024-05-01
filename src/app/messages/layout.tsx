@@ -7,10 +7,9 @@ import ChatFilter from "@/components/custom/Messanger/Chat/Filter";
 import ChatSort from "@/components/custom/Messanger/Chat/Sort";
 import SelectChanel from "@/components/custom/Messanger/Chat/SelectChanel";
 import ChatSearch from "@/components/custom/Messanger/Chat/Search";
-import MessangerHeader from "@/components/custom/Messanger/Messages/Header";
-import MessagesList from "@/components/custom/Messanger/Messages/List";
+
 import UserInfo from "@/components/custom/User/Info";
-import MessagesForm from "@/components/custom/Messanger/Messages/Form";
+
 import { Suspense } from "react";
 
 // import { Providers } from "@/components/providers/Providers";
@@ -70,13 +69,13 @@ export default function Layout({
           </div>
 
           <div className="messandger-block flex flex-col justify-start w-full h-full overflow-hidden">
-            <Suspense
+            {/* <Suspense
               fallback={
                 <div className="flex justify-center m-10">Loading ... </div>
               }
-            >
-              {children}
-            </Suspense>
+            > */}
+            {children}
+            {/* </Suspense> */}
           </div>
         </section>
       </div>

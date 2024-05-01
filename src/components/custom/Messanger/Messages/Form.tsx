@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { LinkIcon, PaperclipIcon, SendIcon, SmileIcon } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
-import { sendMessage } from "@/lib/data";
+import { sendMessage } from "@/lib/api";
 
 const FormSchema = z.object({
   userMessage: z.string().min(2, {
@@ -35,9 +35,11 @@ const FormSchema = z.object({
 function MessagesForm({
   chat_id,
   user_id,
+  addMessage,
 }: {
   chat_id?: string;
   user_id?: string;
+  addMessage: Function;
 }) {
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -51,9 +53,10 @@ function MessagesForm({
   function onSubmit(formData: z.infer<typeof FormSchema>) {
     const data = { pageId: user_id, message: formData?.userMessage };
 
-    // console.log("ENV:", ENV);
+    console.log("chat_id:", chat_id);
 
-    sendMessage(data);
+    addMessage(formData?.userMessage);
+    sendMessage(data, chat_id);
     form.reset();
     // router.push(`/messages/${chat_id}`);
 

@@ -31,9 +31,7 @@ const ChatCard: FC<IChatCard> = ({
   lastMessageTime = "17:17",
 }) => {
   const pathname = usePathname();
-
   const isActive = pathname?.includes(chat_id!.toString());
-
   return (
     <div
       className={cn(
