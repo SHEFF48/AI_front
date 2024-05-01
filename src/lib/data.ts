@@ -90,5 +90,5 @@ export async function sendMessage1(data: any, chatId: string | undefined) {
 
 export async function revalidatePage(path: string) {
   revalidatePath(path, "page");
-  console.log("REVALIDATED!!!1");
+  console.log("REVALIDATED");
 }

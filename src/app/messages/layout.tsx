@@ -69,13 +69,13 @@ export default function Layout({
           </div>
 
           <div className="messandger-block flex flex-col justify-start w-full h-full overflow-hidden">
-            {/* <Suspense
+            <Suspense
               fallback={
                 <div className="flex justify-center m-10">Loading ... </div>
               }
-            > */}
-            {children}
-            {/* </Suspense> */}
+            >
+              {children}
+            </Suspense>
           </div>
         </section>
       </div>
