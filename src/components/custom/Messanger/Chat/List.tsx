@@ -5,7 +5,15 @@ import ChatCard from "./Card";
 import { getAllChats } from "@/lib/data";
 
 const ChatList = async () => {
-  const chatList = await getAllChats();
+  // const chatList = await getAllChats();
+  const chatList = {
+    data: [
+      {
+        id: 0,
+        chat_id: "t_122140904006131054",
+      },
+    ],
+  };
 
   return (
     <div className="flex flex-col gap-[8px] ">
