@@ -70,21 +70,22 @@ const ChatWindow: FC<IChatWindow> = ({ messages, chatId, userId }) => {
     }
   }, [messages]);
 
-  useEffect(() => {
-    let isMounted = true;
+  // LONG POLLING
+  // useEffect(() => {
+  //   let isMounted = true;
 
-    longPolling({
-      getData: getChatByIdLong,
-      isMounted,
-      setCurrentData: setCurrentMessages,
-      revalidateData: revalidateMessages,
-      getCurrentTime,
-    });
+  //   longPolling({
+  //     getData: getChatByIdLong,
+  //     isMounted,
+  //     setCurrentData: setCurrentMessages,
+  //     revalidateData: revalidateMessages,
+  //     getCurrentTime,
+  //   });
 
-    return () => {
-      isMounted = false;
-    };
-  }, [currentMessages, chatId]);
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, [currentMessages, chatId]);
 
   return (
     <>
